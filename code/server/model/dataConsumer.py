@@ -12,17 +12,6 @@ class DataConsumer():
         filePath = DataConsumer.__saveInFile(labels,data,state,beginYear,endYear)
         DataConsumer.__viewData(state,beginYear,endYear)
 
-    def __saveInFile(labels,data,state,beginYear,endYear):
-        file = open('./data/'+str(state)+str(beginYear)+str(endYear)+'.csv', 'w')
-        csvwriter = csv.writer(file)
-
-        csvwriter.writerow(labels)
-
-        for row in data:
-            csvwriter.writerow(row)
-
-        file.close()
-
     def __getCities(state):
         cities = []
 
@@ -33,10 +22,6 @@ class DataConsumer():
             cities.append(city['id'])
 
         return cities
-
-    def __viewData(state,beginYear,endYear):
-        df = pd.read_csv('./data/'+str(state)+str(beginYear)+str(endYear)+'.csv')
-        print(df)
 
     def __getData(cities,state,beginYear,endYear):
 
@@ -104,3 +89,18 @@ class DataConsumer():
                 line[3] = 'qtdBeneficiadosBF < media'
 
         return lines
+
+    def __saveInFile(labels,data,state,beginYear,endYear):
+        file = open('./data/'+str(state)+str(beginYear)+str(endYear)+'.csv', 'w')
+        csvwriter = csv.writer(file)
+
+        csvwriter.writerow(labels)
+
+        for row in data:
+            csvwriter.writerow(row)
+
+        file.close()
+
+    def __viewData(state,beginYear,endYear):
+        df = pd.read_csv('./data/'+str(state)+str(beginYear)+str(endYear)+'.csv')
+        print(df)
