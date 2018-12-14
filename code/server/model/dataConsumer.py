@@ -1,3 +1,5 @@
+#deprecated class - Not enough data to apply apriori
+
 import requests
 import json
 import csv
@@ -9,10 +11,10 @@ class DataConsumer():
         labels = ['data','municipio','valorBF','qtdBeneficiadosBF']
         filePath = './data/'+str(state)+str(beginYear)+str(endYear)+'.csv'
 
-        '''if (not os.path.isfile(filePath)):
+        if (not os.path.isfile(filePath)):
             cities = DataConsumer.__getCities(state)
             data = DataConsumer.__getData(cities,state,beginYear,endYear);
-            filePath = DataConsumer.__saveInFile(labels,data,state,beginYear,endYear)'''
+            filePath = DataConsumer.__saveInFile(labels,data,state,beginYear,endYear)
 
         cities = DataConsumer.__getCities(state)
         data = DataConsumer.__getData(cities,state,beginYear,endYear);
@@ -34,14 +36,14 @@ class DataConsumer():
 
         matrix = []
 
-        for city in cities[:2]:
+        for city in cities[]:
             bf_Info = []
             gs_Info = []
             sd_Info = []
             year = beginYear
 
             while(year <= endYear):
-                for i in range(1, 2):
+                for i in range(1, 13):
                     if i <= 9:
                         month = '0' + str(i)
                     else:

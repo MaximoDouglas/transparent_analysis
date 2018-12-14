@@ -15,8 +15,7 @@ api = Api(app)
 
 #Routing the requests to "/".
 #In this case, the class HelloWorld will be the responsible to handle this requests
-api.add_resource(Facade,'/mining/<int:state>/<int:beginYear>/<int:endYear>')
-api.add_resource(FacadeAux,'/','/mining')
+api.add_resource(Facade,'/', '/mining/<int:state>/<int:beginYear>/<int:endYear>')
 
 #This conditional allow the running just if this script is directly executed
 if __name__ == '__main__':
