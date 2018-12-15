@@ -17,23 +17,6 @@ class Facade(Resource):
 
         return {'id': data[0], 'state_name': data[1], 'list': jsonList}
 
-    def delete(self,id):
-        filePath = './data/'+str(id)+'.csv'
-
-        if (os.path.isfile(filePath)):
-            os.remove(filePath)
-
-    def put(self):
-        requestBody = request.get_json()
-        id = str(requestBody['id'])
-
-        filePath = './data/'+str(id)+'.csv'
-
-        if (os.path.isfile(filePath)):
-            newName = requestBody['new_name']
-            if(id[:2] != newName[:2]):
-                os.rename(filePath, './data/'+id[:2]+'_'+newName+'.csv')
-
     def post(self):
         requestBody = request.get_json()
 
@@ -76,11 +59,62 @@ class FacadeCache(Resource):
 
             return l
 
+    def put(self):
+        requestBody = request.get_json()
+        id = str(requestBody['id'])
+
+        filePath = './data/'+str(id)+'.csv'
+
+        if (os.path.isfile(filePath)):
+            newName = requestBody['new_name']
+            if(id[:2] != newName[:2]):
+                os.rename(filePath, './data/'+id[:2]+'_'+newName+'.csv')
+
+    def delete(self,id):
+        filePath = './data/'+str(id)+'.csv'
+
+        if (os.path.isfile(filePath)):
+            os.remove(filePath)
+
     def __parameter_get(self, id):
-        for hero in heroes:
-            if hero['id'] == id:
-                return hero
+        files = os.listdir('./data')
+        files.remove('.gitignore')
+        names = []
+
+        for file in files:
+            names.append(file.split(".")[0])
+
+        for name in names:
+            if (name.upper() == id.upper()):
+                data = GetData.getById(id)
+
+                jsonList = []
+
+                for value in data[2]:
+                    jsonList.append({'date': value[0], 'value': value[1]})
+
+                return {'id': data[0], 'state_name': data[1], 'list': jsonList}
+
         return 'bad request!', 400
 
     def __simple_get(self):
-        return heroes
+        l = []
+
+        files = os.listdir('./data')
+        files.remove('.gitignore')
+        names = []
+
+        for file in files:
+            names.append(file.split(".")[0])
+
+        for id in names:
+            data = GetData.getById(id)
+
+            jsonList = []
+
+            for value in data[2]:
+                jsonList.append({'date': value[0], 'value': value[1]})
+
+            l.append({'id': data[0], 'state_name': data[1], 'list': jsonList})
+
+        return l
