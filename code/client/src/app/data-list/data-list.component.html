@@ -1,0 +1,22 @@
+<br/>
+<!-->
+<div>
+  <label>Data Identification:
+    <input #datId />
+  </label>
+  <button (click)="add(heroName.value); datId.value=''">
+    add
+  </button>
+</div>
+<!-->
+<h2>Data in cache</h2>
+<ul class="data-list">
+  <li *ngFor="let data of data_list">
+    <a routerLink="/detail/{{data.id}}">
+      <span class="badge">{{data.id}}</span> {{data.state_name}}
+    </a>
+    <button class="delete" title="delete data"
+      (click)="delete(data)">x
+    </button>
+  </li>
+</ul>

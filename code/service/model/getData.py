@@ -13,7 +13,7 @@ class GetData():
         data = []
 
         if (not os.path.isfile(filePath)):
-            
+
             cities = GetData.__getCities(state)
             data = GetData.__getData(cities,state,beginYear,endYear);
             filePath = GetData.__saveInFile(labels,data,state,beginYear,endYear)
@@ -31,7 +31,7 @@ class GetData():
         df = pd.read_csv(filePath)
         data = df.values.tolist()
 
-        stateName = GetData.__getStateName(id[:3])
+        stateName = GetData.__getStateName(str(id)[:2])
 
         return (id, stateName, data)
 
@@ -50,7 +50,7 @@ class GetData():
         states = requests.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados').json()
 
         for state in states:
-            if (state['id'] == id):
+            if (str(state['id']) == str(id)):
                 return state['nome']
 
     def __getData(cities,state,beginYear,endYear):
