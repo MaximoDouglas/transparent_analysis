@@ -13,6 +13,7 @@ class GetData():
         data = []
 
         if (not os.path.isfile(filePath)):
+            
             cities = GetData.__getCities(state)
             data = GetData.__getData(cities,state,beginYear,endYear);
             filePath = GetData.__saveInFile(labels,data,state,beginYear,endYear)
