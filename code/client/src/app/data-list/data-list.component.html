@@ -1,7 +1,7 @@
 <div>
   <label>State:</label> <input #state /> <br/>
-  <label>Begin:</label> <input #beginYear /> <br/>
-  <label>End:</label> <input #endYear /> <br/>
+  <label>Begin:</label> <input #beginYear /> MMYYYY <br/> 
+  <label>End:</label> <input #endYear /> MMYYYY <br/>
   <button (click)="get(state.value,beginYear.value,endYear.value); state.value='';
                    beginYear.value=''; endYear.value=''">
     GET
