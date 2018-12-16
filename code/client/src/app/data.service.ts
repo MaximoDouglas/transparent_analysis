@@ -55,18 +55,15 @@ export class DataService {
 
     return this.http.delete<Data>(url, httpOptions).pipe(catchError(this.handleError<Data>('deleteData')));
   }
-  /**
-  searchHeroes(term: string): Observable<Hero[]> {
+
+  searchData(term: string): Observable<Data[]> {
     if (!term.trim()) {
       return of([]);
     }
-    return this.http.get<Hero[]>(`${this.heroesUrl}?name=${term}`).pipe(
-      tap(_ => this.log(`found heroes matching "${term}"`)),
-      catchError(this.handleError<Hero[]>('searchHeroes', []))
+    return this.http.get<Data[]>(`${this.dataUrl}/cache?name=${term}`).pipe(
+      catchError(this.handleError<Data[]>('searchData', []))
     );
   }
-
-  */
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

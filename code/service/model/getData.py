@@ -47,6 +47,7 @@ class GetData():
         return cities
 
     def __getStateName(id):
+        
         states = requests.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados').json()
 
         for state in states:

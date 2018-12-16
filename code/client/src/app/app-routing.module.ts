@@ -1,7 +1,7 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-//import { MainComponent }        from './main/main.component';
+import { MainMenuComponent }        from './main-menu/main-menu.component';
 import { DataListComponent }    from './data-list/data-list.component';
 //import { DataDetailComponent }  from './data-detail/data-detail.component';
 /**
@@ -14,7 +14,8 @@ const routes: Routes = [
 */
 
 const routes: Routes = [
-  { path: '', redirectTo: '/main', pathMatch: 'full' },
+  { path: '', redirectTo: '/main-menu', pathMatch: 'full' },
+  { path: 'main-menu', component: MainMenuComponent },
   { path: 'data-list', component: DataListComponent }
 ];
 
