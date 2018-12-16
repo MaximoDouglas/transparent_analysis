@@ -1,5 +1,5 @@
 export class Data {
-  id: number;
+  id: string;
   state_name: string;
   list: [];
 }

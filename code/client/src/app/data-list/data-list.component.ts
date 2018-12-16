@@ -15,7 +15,6 @@ export class DataListComponent implements OnInit {
     constructor(private dataService: DataService) { }
 
     ngOnInit() {
-      console.log("Ola");
       this.getDataList();
     }
 

@@ -61,14 +61,16 @@ class FacadeCache(Resource):
 
     def put(self):
         requestBody = request.get_json()
-        id = str(requestBody['id'])
+        id = str(requestBody['id']).split("#")[0]
 
         filePath = './data/'+str(id)+'.csv'
 
         if (os.path.isfile(filePath)):
-            newName = requestBody['new_name']
+            newName = str(requestBody['id']).split("#")[1]
             if(id[:2] != newName[:2]):
                 os.rename(filePath, './data/'+id[:2]+'_'+newName+'.csv')
+            else:
+                os.rename(filePath, './data/'+newName+'.csv')
 
     def delete(self,id):
         filePath = './data/'+str(id)+'.csv'

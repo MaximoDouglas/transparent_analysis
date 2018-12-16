@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { DataListComponent } from './data-list/data-list.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { DataSearchComponent } from './data-search/data-search.component';
+import { DataDetailComponent } from './data-detail/data-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DataListComponent,
     MainMenuComponent,
-    DataSearchComponent
+    DataSearchComponent,
+    DataDetailComponent
   ],
   imports: [
     BrowserModule,

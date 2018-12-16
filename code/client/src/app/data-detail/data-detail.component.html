@@ -1,0 +1,17 @@
+<div *ngIf="data">
+  <h2>{{data.id | uppercase}} Details</h2>
+
+  <label>State: </label> {{data.state_name}}
+  <div>
+    <label>Id: </label> <input [(ngModel)]="data.id" placeholder="Identification"/> <button title="save changes" (click)="save()">Update ID</button>
+  </div>
+
+  <br/>
+      <div>
+      The first two characters of the <b>Id</b> must remain the same.
+          If you try to change it, the server will concatenate the first two digits with the new Id.
+      </div>
+
+
+</div>
+<button title="go back" (click)="goBack()">go back</button>
