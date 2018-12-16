@@ -23,16 +23,19 @@ export class DataListComponent implements OnInit {
       .subscribe(data_list => this.data_list = data_list);
     }
 
-    /**
-    add(name: string): void {
-      name = name.trim();
-      if (!name) { return; }
-      this.heroService.addHero({ name } as Hero)
-        .subscribe(hero => {
-          this.heroes.push(hero);
+    get(state: number,beginYear: number,endYear: number): void {
+
+      state = state;
+      beginYear = beginYear;
+      endYear = endYear;
+
+      if (!state || !beginYear || !endYear) { return; }
+
+      this.dataService.get(state,beginYear,endYear)
+        .subscribe(data => {
+          this.data_list.push(data);
         });
     }
-    */
 
     delete(data: Data): void {
       this.data_list = this.data_list.filter(d => d !== data);

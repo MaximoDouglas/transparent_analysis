@@ -1,14 +1,12 @@
-<br/>
-<!-->
 <div>
-  <label>Data Identification:
-    <input #datId />
-  </label>
-  <button (click)="add(heroName.value); datId.value=''">
-    add
+  <label>State:</label> <input #state /> <br/>
+  <label>Begin:</label> <input #beginYear /> <br/>
+  <label>End:</label> <input #endYear /> <br/>
+  <button (click)="get(state.value,beginYear.value,endYear.value); state.value='';
+                   beginYear.value=''; endYear.value=''">
+    GET
   </button>
 </div>
-<!-->
 <h2>Data in cache</h2>
 <ul class="data-list">
   <li *ngFor="let data of data_list">

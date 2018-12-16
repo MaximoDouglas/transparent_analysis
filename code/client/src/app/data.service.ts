@@ -35,14 +35,14 @@ export class DataService {
     );
   }
 
-/**
-  addHero (hero: Hero): Observable<Hero> {
-    return this.http.post<Hero>(this.heroesUrl, hero, httpOptions).pipe(
-      tap((hero: Hero) => this.log(`added hero w/ id=${hero.id}`)),
-      catchError(this.handleError<Hero>('addHero'))
+
+  get(state: number,beginYear: number,endYear: number): Observable<Data> {
+    const url = `${this.dataUrl}/${state}/${beginYear}/${endYear}`;
+    return this.http.get<Data>(url)
+    .pipe(
+      catchError(this.handleError<Data>(`getData`))
     );
   }
-  */
 
   deleteData(data: Data | string): Observable<Data> {
     const id = typeof data === 'string' ? data : data.id;
