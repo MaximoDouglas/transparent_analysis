@@ -1,4 +1,4 @@
-#deprecated class - Not enough data to apply apriori
+'''#deprecated class - Not enough data to apply apriori
 
 import pandas as pd
 from mlxtend.frequent_patterns import apriori
@@ -26,3 +26,4 @@ class DataAnalyzer():
         result = apriori(df, min_support=0.1, use_colnames=True)
 
         return result
+'''

@@ -1,4 +1,4 @@
-#deprecated class - Not enough data to apply apriori
+'''#deprecated class - Not enough data to apply apriori
 
 import requests
 import json
@@ -129,3 +129,4 @@ class DataConsumer():
     def __viewData(state,beginYear,endYear):
         df = pd.read_csv('./data/'+str(state)+str(beginYear)+str(endYear)+'.csv')
         print(df)
+'''
