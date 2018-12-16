@@ -11,10 +11,12 @@ import { DataService } from '../data.service';
 export class DataListComponent implements OnInit {
 
     data_list: Data[];
+    isLoading: boolean;
 
     constructor(private dataService: DataService) { }
 
     ngOnInit() {
+      this.isLoading = false;
       this.getDataList();
     }
 
@@ -25,12 +27,13 @@ export class DataListComponent implements OnInit {
 
     get(state: number,beginYear: number,endYear: number): void {
 
+      this.isLoading = true;
+
       if (!state || !beginYear || !endYear) { return; }
 
-      this.dataService.get(state,beginYear,endYear)
-        .subscribe(data => {
-          this.data_list.push(data);
-        });
+      this.dataService.get(state,beginYear,endYear).subscribe( () => {
+          this.ngOnInit();
+      });
     }
 
     delete(data: Data): void {

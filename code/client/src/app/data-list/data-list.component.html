@@ -1,11 +1,15 @@
 <div>
-  <label>State:</label> <input #state /> <br/>
-  <label>Begin:</label> <input #beginYear /> MMYYYY <br/> 
-  <label>End:</label> <input #endYear /> MMYYYY <br/>
+  <label title="This will make a GET-Request to the service"><h2>Request</h2></label> <br/>
+  <label title="This code can be found in tha Main menu">State:</label> <input #state /> <br/>
+  <label title="The first year of the interval">Begin:</label> <input #beginYear /><br/>
+  <label title="The last year of the interval">End:</label> <input #endYear /><br/>
   <button (click)="get(state.value,beginYear.value,endYear.value); state.value='';
                    beginYear.value=''; endYear.value=''">
     GET
   </button>
+</div>
+<div *ngIf="isLoading == true">
+    <h2>Loading Data - Please wait... </h2>
 </div>
 <div *ngIf="data_list.length > 0">
     <h2>Data in cache</h2>

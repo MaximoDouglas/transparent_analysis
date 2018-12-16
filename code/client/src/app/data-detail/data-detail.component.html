@@ -1,6 +1,7 @@
 <div *ngIf="data">
-  <h2> ID: <label>{{data.id | uppercase}}</label></h2>
-  <label>State: </label> {{data.state_name}}
+  <h3> ID: <label>{{data.id | uppercase}}</label></h3>
+  <h3> State: <label>{{data.state_name | uppercase}}</label></h3>
+  <h3> Type: BOLSA FAMÍLIA </h3>
   <div>
     <label>ID: </label> <input [(ngModel)]="data.id" placeholder="Identification"/>
     <button title="save changes" (click)="save()">Update ID</button>
@@ -19,9 +20,3 @@
     <div id="first"><canvas id="canvas">{{chart}}</canvas></div>
     <div id="second"><canvas id="barCanvas">{{barChart}}</canvas></div>
 </div>
-
-<!-->
-<div *ngIf="chart" class="chart-container">
-    <canvas id="canvas">{{chart}}</canvas><canvas id="barCanvas">{{barChart}}</canvas>
-</div>
-<!-->

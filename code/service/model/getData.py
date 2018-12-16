@@ -16,7 +16,10 @@ class GetData():
 
             cities = GetData.__getCities(state)
             data = GetData.__getData(cities,state,beginYear,endYear);
-            filePath = GetData.__saveInFile(labels,data,state,beginYear,endYear)
+            if (len(data) > 0):
+                filePath = GetData.__saveInFile(labels,data,state,beginYear,endYear)
+            else:
+                return
         else:
             df = pd.read_csv(filePath)
             data = df.values.tolist()
@@ -56,7 +59,6 @@ class GetData():
 
     def __getData(cities,state,beginYear,endYear):
         matrix = []
-
         year = beginYear
 
         while(year <= endYear):
@@ -69,15 +71,20 @@ class GetData():
                     month = str(i)
 
                 for city in cities:
-                    resultBF = requests.get('http://www.transparencia.gov.br/api-de-dados/'
+                    result = requests.get('http://www.transparencia.gov.br/api-de-dados/'
                     +'bolsa-familia-por-municipio?mesAno='+str(year)+month+'&codigoIbge='+str(city)
-                    +'&pagina=1').json()[0]
+                    +'&pagina=1').json()
 
-                    bf_Info.append(resultBF)
 
-                cleanInfo = GetData.__preprocess(bf_Info)
+                    if (len(result) > 0):
+                         resultBF = result[0]
 
-                matrix.append(cleanInfo)
+                         bf_Info.append(resultBF)
+
+                if (len(bf_Info) > 0):
+                    cleanInfo = GetData.__preprocess(bf_Info)
+
+                    matrix.append(cleanInfo)
 
             year += 1
 

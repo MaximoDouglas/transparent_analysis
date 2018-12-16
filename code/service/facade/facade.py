@@ -1,5 +1,6 @@
 from flask import request
 from flask_restful import Resource
+from werkzeug.exceptions import BadRequest
 import os
 import datetime
 
@@ -11,11 +12,13 @@ class Facade(Resource):
         data = GetData.getData(state,beginYear,endYear)
 
         jsonList = []
+        if (type(data) == 'NoneType'):
+            for value in data[2]:
+                jsonList.append({'date': value[0], 'value': value[1]})
 
-        for value in data[2]:
-            jsonList.append({'date': value[0], 'value': value[1]})
-
-        return {'id': data[0], 'state_name': data[1], 'list': jsonList}
+            return {'id': data[0], 'state_name': data[1], 'list': jsonList}
+        else:
+            raise BadRequest()
 
     def post(self):
         requestBody = request.get_json()
