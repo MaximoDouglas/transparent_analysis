@@ -5,6 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 
 import { Data } from './data';
+import { Message } from './message';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -35,6 +36,11 @@ export class DataService {
     );
   }
 
+  postMessage(message: Message): Observable<Message> {
+    return this.http.post<Message>(this.dataUrl, message, httpOptions).pipe(
+        catchError(this.handleError<Message>('postMessage'))
+    );
+  }
 
   get(state: number,beginYear: number,endYear: number): Observable<Data> {
     const url = `${this.dataUrl}/${state}/${beginYear}/${endYear}`;

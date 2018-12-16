@@ -1,0 +1,18 @@
+<h3>Please, send a feedback about the app</h3>
+<div>
+  <label>Name:</label> <input #name /> <br/>
+  <label>Content:</label> <input #content /> <br/>
+  <button (click)="send(name.value,content.value); name.value='';
+                   content.value=''">
+    SEND
+  </button>
+
+<br/>
+
+  <div *ngIf="message">
+      <hr/><br/>
+      <h3>Last Message:</h3>
+      <label>User:</label> {{message.name}} <br/>
+      <label>Content:</label> {{message.content}} <br/>
+  </div>
+</div>

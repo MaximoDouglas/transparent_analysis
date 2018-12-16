@@ -9,6 +9,7 @@ import { DataListComponent } from './data-list/data-list.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { DataSearchComponent } from './data-search/data-search.component';
 import { DataDetailComponent } from './data-detail/data-detail.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DataDetailComponent } from './data-detail/data-detail.component';
     DataListComponent,
     MainMenuComponent,
     DataSearchComponent,
-    DataDetailComponent
+    DataDetailComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

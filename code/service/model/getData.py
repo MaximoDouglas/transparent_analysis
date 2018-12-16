@@ -60,7 +60,7 @@ class GetData():
         year = beginYear
 
         while(year <= endYear):
-            for i in range(1, 3):
+            for i in range(1, 13):
                 bf_Info = []
 
                 if i <= 9:
@@ -68,7 +68,7 @@ class GetData():
                 else:
                     month = str(i)
 
-                for city in cities[:2]:
+                for city in cities:
                     resultBF = requests.get('http://www.transparencia.gov.br/api-de-dados/'
                     +'bolsa-familia-por-municipio?mesAno='+str(year)+month+'&codigoIbge='+str(city)
                     +'&pagina=1').json()[0]

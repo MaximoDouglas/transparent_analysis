@@ -25,10 +25,6 @@ export class DataListComponent implements OnInit {
 
     get(state: number,beginYear: number,endYear: number): void {
 
-      state = state;
-      beginYear = beginYear;
-      endYear = endYear;
-
       if (!state || !beginYear || !endYear) { return; }
 
       this.dataService.get(state,beginYear,endYear)

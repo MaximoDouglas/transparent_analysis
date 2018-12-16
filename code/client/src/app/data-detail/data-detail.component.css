@@ -1,8 +1,7 @@
-/* HeroDetailComponent's private CSS styles */
 label {
   display: inline-block;
   width: 3em;
-  margin: .5em 0;
+  margin: .10em 0;
   color: #607D8B;
   font-weight: bold;
 }
@@ -15,7 +14,7 @@ button {
   margin-top: 20px;
   font-family: Arial;
   background-color: #eee;
-  border: none;
+  border: solid;
   padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer; cursor: hand;
@@ -30,15 +29,28 @@ button:disabled {
 }
 button {
   background-color: #0aeb7e;
-  border: none;
-  padding: 12px 10px;
-  border-radius: 4px;
+  border: solid;
+  padding: 10px 10px;
+  border-radius: 10px;
   cursor: pointer;
   cursor: hand;
   font-family: Arial;
 }
-button.delete {
-  position: relative;
-  background-color: gray !important;
-  color: white;
+
+#container {
+    width: 98vw;
+    margin: auto;
+}
+
+.chart-container {
+    width: 90vw;
+}
+
+#first {
+    width: 40vw;
+    float: left;
+}
+#second {
+    width: 40vw;
+    float: left;
 }

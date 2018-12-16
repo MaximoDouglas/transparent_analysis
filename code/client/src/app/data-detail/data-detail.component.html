@@ -1,10 +1,10 @@
 <div *ngIf="data">
-  <h2>{{data.id | uppercase}} Details</h2>
-
+  <h2> ID: <label>{{data.id | uppercase}}</label></h2>
   <label>State: </label> {{data.state_name}}
   <div>
-    <label>Id: </label> <input [(ngModel)]="data.id" placeholder="Identification"/>
+    <label>ID: </label> <input [(ngModel)]="data.id" placeholder="Identification"/>
     <button title="save changes" (click)="save()">Update ID</button>
+    <button title="go back" (click)="goBack()">go back</button>
   </div>
 
   <br/>
@@ -12,7 +12,16 @@
       The first two characters of the <b>Id</b> must remain the same.
           If you try to change it, the server will concatenate the first two digits with the new Id.
       </div>
-
-
 </div>
-<button title="go back" (click)="goBack()">go back</button>
+<br/>
+
+<div *ngIf="chart" id="container"  class="chart-container">
+    <div id="first"><canvas id="canvas">{{chart}}</canvas></div>
+    <div id="second"><canvas id="barCanvas">{{barChart}}</canvas></div>
+</div>
+
+<!-->
+<div *ngIf="chart" class="chart-container">
+    <canvas id="canvas">{{chart}}</canvas><canvas id="barCanvas">{{barChart}}</canvas>
+</div>
+<!-->
