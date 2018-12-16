@@ -40,7 +40,6 @@ class FacadeCache(Resource):
             l = []
 
             files = os.listdir('./data')
-            files.remove('.gitignore')
             names = []
 
             for file in files:
@@ -80,7 +79,6 @@ class FacadeCache(Resource):
 
     def __parameter_get(self, id):
         files = os.listdir('./data')
-        files.remove('.gitignore')
         names = []
 
         for file in files:
@@ -103,7 +101,6 @@ class FacadeCache(Resource):
         l = []
 
         files = os.listdir('./data')
-        files.remove('.gitignore')
         names = []
 
         for file in files:
