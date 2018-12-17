@@ -18,9 +18,6 @@ This repository contain both the client and the server of a client-server system
 3. Run the command `bash start.sh`.
 4. If everything gone well, you have the client running on `http://localhost:4200/`. Note: perhaps you see a ERROR message in the system log. If this occurs, don't worry, the application works without any problems.
 
-## Using the Client Application
-## Main-Menu
-
 ## Using the Service API
 ### GET Requests
 1. To get the data in the interval of {beginYear} 'til the {endYear} from a state that have the id = {stateCode} use: `http://127.0.0.1:5000/{stateCode}/{beginYear}/{endYear}`
