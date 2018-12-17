@@ -22,13 +22,13 @@ This repository contain both the client and the server of a client-server system
 1. [This Link](https://www.youtube.com/watch?v=JXqDNV4YhwU) shows the general usage of the app. 
 2. Na tela inicial, é possivel ver uma barra mais ao topo, com as descrições **Main** | **Data-List** | **Contact**, cada uma fornece serviçoes diferentes.
 3. Na aba **Main** (na qual a aplicação abre inicialmente) dois itens: **Links em forma de botão** e **Uma caixa de texto**.
-3.1. O usuário pode verificar os conteúdos dos 4 links externos, pois podem ser uteis para o uso do Sistema.
-3.2. Na **Caixa de texto** o usuário pode digitar um ID para procurar dados que estejam no cache do servidor e tenham ID similar.
+- 3.1. O usuário pode verificar os conteúdos dos 4 links externos, pois podem ser uteis para o uso do Sistema.
+- 3.2. Na **Caixa de texto** o usuário pode digitar um ID para procurar dados que estejam no cache do servidor e tenham ID similar.
 4. Na aba **Data-List** existem dois subcomponentes: **Form** e **Lista de dados do cache do servidor** (If there are data in the server cache).
-4.1. In the **Form** the user can fill the code of a state a begin year and a end year to make the request pressing **SEND**. Doing this, the user will send a GET Request to the server. If the data for the respective request is already in the server, the server will just process and send the response. If the data is not in the server, the service will consume the IBGE and the Portal da transparência API to get and, after it, process the data requested by the user.
-4.2. The **List of cache data** are, as the name says, a list of data that already are on the server cache. Cliking in one of these items will take you to the component **Data Detail**.
-4.3. The **Data detail** component have a series of informations about the data, including a chart representing the sum of the Bolsa Familia values that the cities of the respective state had received in a interval of time. In this component there are a **Text Box** that will be explained as follows.
-4.4. The **Text Box** in the **Data detail** component is used to make the PUT request, updating the data ID with the new one.
+- 4.1. In the **Form** the user can fill the code of a state a begin year and a end year to make the request pressing **SEND**. Doing this, the user will send a GET Request to the server. If the data for the respective request is already in the server, the server will just process and send the response. If the data is not in the server, the service will consume the IBGE and the Portal da transparência API to get and, after it, process the data requested by the user.
+- 4.2. The **List of cache data** are, as the name says, a list of data that already are on the server cache. Cliking in one of these items will take you to the component **Data Detail**.
+- 4.3. The **Data detail** component have a series of informations about the data, including a chart representing the sum of the Bolsa Familia values that the cities of the respective state had received in a interval of time. In this component there are a **Text Box** that will be explained as follows.
+- 4.4. The **Text Box** in the **Data detail** component is used to make the PUT request, updating the data ID with the new one.
 5. In the **Contact tab** the user can send a feedback message to the server, along with his name. The last message sent by the user will appear in the bottom of the page.
 
 ## Using the Service API
