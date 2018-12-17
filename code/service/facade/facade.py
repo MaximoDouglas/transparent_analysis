@@ -12,7 +12,7 @@ class Facade(Resource):
         data = GetData.getData(state,beginYear,endYear)
 
         jsonList = []
-        if (type(data) == 'NoneType'):
+        if (type(data) != 'NoneType'):
             for value in data[2]:
                 jsonList.append({'date': value[0], 'value': value[1]})
 
