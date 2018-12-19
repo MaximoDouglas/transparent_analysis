@@ -5,14 +5,14 @@ This repository contain both the client and the server of a client-server system
 `Note: the installations have to occur in different terminals.`
 
 ### Installing Service
-0. Required packeges: **python3-pip, Flask, Flask-RESTful or flask-cors**;
+0. Required packeges: **python3-pip, Flask, Flask-RESTful and flask-cors**;
 1. Open a terminal;
 2. Go to `~/transparent_analysis/code/service`;
 3. Run the command `bash start.sh`;
 4. If everything gone well, you have the service running on `http://localhost:5000/`.
  
 ### Installing Client
-0. Required packeges: **curl, nodejs or angularCLI**;
+0. Required packeges: **curl, nodejs and angularCLI**;
 1. Open a terminal;
 2. Go to `~/transparent_analysis/code/client`;
 3. Run the command `bash start.sh`.
